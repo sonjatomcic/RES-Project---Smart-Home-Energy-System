@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0001D959-2849-467C-99C8-D06EA360B6B9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SmartHomeEnergySystem</RootNamespace>
+    <AssemblyName>SmartHomeEnergySystem</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BATERIJA\Baterija.cs" />
+    <Compile Include="BATERIJA\BaterijaMetode.cs" />
+    <Compile Include="BAZA\ApplicationContext.cs" />
+    <Compile Include="COMMON\IElektrodistribucija.cs" />
+    <Compile Include="COMMON\IPotrosac.cs" />
+    <Compile Include="COMMON\IShes.cs" />
+    <Compile Include="COMMON\ISolarniPanel.cs" />
+    <Compile Include="COMMON\IBaterija.cs" />
+    <Compile Include="DODATNE_TABELE\ElektrodistribucijaPodaci.cs" />
+    <Compile Include="DODATNE_TABELE\PanelIzmereneVrednosti.cs" />
+    <Compile Include="DODATNE_TABELE\IzmereneVrednostiBaterije.cs" />
+    <Compile Include="DODATNE_TABELE\PotrosaciStanje.cs" />
+    <Compile Include="ELEKTRODISTRIBUCIJA\Elektrodistribucija.cs" />
+    <Compile Include="ELEKTRODISTRIBUCIJA\ElektrodistribucijaMetode.cs" />
+    <Compile Include="Migrations\202005272105547_Initial.cs" />
+    <Compile Include="Migrations\202005272105547_Initial.designer.cs">
+      <DependentUpon>202005272105547_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005272234367_SolarniPaneli.cs" />
+    <Compile Include="Migrations\202005272234367_SolarniPaneli.designer.cs">
+      <DependentUpon>202005272234367_SolarniPaneli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006010836242_PanelIzmereneVrednosti.cs" />
+    <Compile Include="Migrations\202006010836242_PanelIzmereneVrednosti.designer.cs">
+      <DependentUpon>202006010836242_PanelIzmereneVrednosti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006051118405_izmereneVrednostiPanela2.cs" />
+    <Compile Include="Migrations\202006051118405_izmereneVrednostiPanela2.designer.cs">
+      <DependentUpon>202006051118405_izmereneVrednostiPanela2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006051135037_izmereneVrednostiPanela3.cs" />
+    <Compile Include="Migrations\202006051135037_izmereneVrednostiPanela3.designer.cs">
+      <DependentUpon>202006051135037_izmereneVrednostiPanela3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011747316_baterija.cs" />
+    <Compile Include="Migrations\202006011747316_baterija.designer.cs">
+      <DependentUpon>202006011747316_baterija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006011848083_baterija2.cs" />
+    <Compile Include="Migrations\202006011848083_baterija2.designer.cs">
+      <DependentUpon>202006011848083_baterija2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006021439124_izmerenevrednostibaterija.cs" />
+    <Compile Include="Migrations\202006021439124_izmerenevrednostibaterija.designer.cs">
+      <DependentUpon>202006021439124_izmerenevrednostibaterija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006062044275_MigracijaPrviSprintZavrsile.cs" />
+    <Compile Include="Migrations\202006062044275_MigracijaPrviSprintZavrsile.designer.cs">
+      <DependentUpon>202006062044275_MigracijaPrviSprintZavrsile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006071046190_potrosaciMigracija.cs" />
+    <Compile Include="Migrations\202006071046190_potrosaciMigracija.designer.cs">
+      <DependentUpon>202006071046190_potrosaciMigracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006071428514_PotrosacDva.cs" />
+    <Compile Include="Migrations\202006071428514_PotrosacDva.designer.cs">
+      <DependentUpon>202006071428514_PotrosacDva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006071629023_elektrodistribucija.cs" />
+    <Compile Include="Migrations\202006071629023_elektrodistribucija.designer.cs">
+      <DependentUpon>202006071629023_elektrodistribucija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006071633281_elektrodistribucija2.cs" />
+    <Compile Include="Migrations\202006071633281_elektrodistribucija2.designer.cs">
+      <DependentUpon>202006071633281_elektrodistribucija2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006121000084_potrosaciStanjeMig.cs" />
+    <Compile Include="Migrations\202006121000084_potrosaciStanjeMig.designer.cs">
+      <DependentUpon>202006121000084_potrosaciStanjeMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006121039119_izmereneVrednostiBatDodatoPolje.cs" />
+    <Compile Include="Migrations\202006121039119_izmereneVrednostiBatDodatoPolje.designer.cs">
+      <DependentUpon>202006121039119_izmereneVrednostiBatDodatoPolje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="POTROSAC\Potrosac.cs" />
+    <Compile Include="POTROSAC\PotrosacMetode.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SHES\FakeShesRepozitorijum.cs" />
+    <Compile Include="SHES\Shes.cs" />
+    <Compile Include="SHES\ShesGrafik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SHES\ShesGrafik.Designer.cs">
+      <DependentUpon>ShesGrafik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SHES\ShesMetode.cs" />
+    <Compile Include="SHES\ShesRepozitorijum.cs" />
+    <Compile Include="SOLARNI_PANEL\SolarniPanel.cs" />
+    <Compile Include="SOLARNI_PANEL\SolarniPanelMetode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005272105547_Initial.resx">
+      <DependentUpon>202005272105547_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005272234367_SolarniPaneli.resx">
+      <DependentUpon>202005272234367_SolarniPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006010836242_PanelIzmereneVrednosti.resx">
+      <DependentUpon>202006010836242_PanelIzmereneVrednosti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006051118405_izmereneVrednostiPanela2.resx">
+      <DependentUpon>202006051118405_izmereneVrednostiPanela2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006051135037_izmereneVrednostiPanela3.resx">
+      <DependentUpon>202006051135037_izmereneVrednostiPanela3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011747316_baterija.resx">
+      <DependentUpon>202006011747316_baterija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006011848083_baterija2.resx">
+      <DependentUpon>202006011848083_baterija2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006021439124_izmerenevrednostibaterija.resx">
+      <DependentUpon>202006021439124_izmerenevrednostibaterija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006062044275_MigracijaPrviSprintZavrsile.resx">
+      <DependentUpon>202006062044275_MigracijaPrviSprintZavrsile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071046190_potrosaciMigracija.resx">
+      <DependentUpon>202006071046190_potrosaciMigracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071428514_PotrosacDva.resx">
+      <DependentUpon>202006071428514_PotrosacDva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071629023_elektrodistribucija.resx">
+      <DependentUpon>202006071629023_elektrodistribucija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071633281_elektrodistribucija2.resx">
+      <DependentUpon>202006071633281_elektrodistribucija2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006121000084_potrosaciStanjeMig.resx">
+      <DependentUpon>202006121000084_potrosaciStanjeMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006121039119_izmereneVrednostiBatDodatoPolje.resx">
+      <DependentUpon>202006121039119_izmereneVrednostiBatDodatoPolje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SHES\ShesGrafik.resx">
+      <DependentUpon>ShesGrafik.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
