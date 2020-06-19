@@ -1,6 +1,6 @@
 # RES-Project---Smart-Home-Energy-System
 
-Smart Home Energy System Faculty Project developed by my colleague and me. 
+ Faculty Project developed by my colleague and me. 
 Simple Console App made in C#. 
 We used Entity Framework. Also, there is Test Project Class Library used for Unit Testing.
 
